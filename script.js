@@ -1,6 +1,6 @@
 function unlock() {
   const code = document.getElementById("passcode").value.trim();
-  const correctCode = "44319"; // ❤️ change if needed
+  const correctCode = "44319";
 
   if (code === correctCode) {
     document.getElementById("lockScreen").style.display = "none";
@@ -13,8 +13,7 @@ function unlock() {
 }
 
 document.getElementById("valentineBtn").addEventListener("click", () => {
-  const answer = document.getElementById("answer");
-  answer.classList.add("show");
+  document.getElementById("answer").classList.add("show");
 
   for (let i = 0; i < 10; i++) {
     createHeart();
@@ -23,10 +22,9 @@ document.getElementById("valentineBtn").addEventListener("click", () => {
 
 function createHeart() {
   const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerText = "💖";
+  heart.className = "heart";
+  heart.textContent = "💖";
   heart.style.left = Math.random() * 100 + "%";
   document.getElementById("hearts").appendChild(heart);
-
   setTimeout(() => heart.remove(), 2500);
 }
