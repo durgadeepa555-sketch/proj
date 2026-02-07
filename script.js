@@ -1,6 +1,6 @@
 function unlock() {
-  const code = document.getElementById("passcode").value.trim();
-  const correctCode = "44319";
+  const code = document.getElementById("passcode").value;
+  const correctCode = "44319"; // CHANGE THIS ❤️
 
   if (code === correctCode) {
     document.getElementById("lockScreen").style.display = "none";
@@ -8,12 +8,14 @@ function unlock() {
     document.getElementById("bgMusic").play();
   } else {
     alert("Wrong code 😛 Try again");
-    document.getElementById("passcode").value = "";
   }
 }
 
+
+
 document.getElementById("valentineBtn").addEventListener("click", () => {
-  document.getElementById("answer").classList.add("show");
+  const answer = document.getElementById("answer");
+  answer.classList.add("show");
 
   for (let i = 0; i < 10; i++) {
     createHeart();
@@ -22,9 +24,14 @@ document.getElementById("valentineBtn").addEventListener("click", () => {
 
 function createHeart() {
   const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.textContent = "💖";
+  heart.classList.add("heart");
+  heart.innerText = "💖";
+
   heart.style.left = Math.random() * 100 + "%";
+
   document.getElementById("hearts").appendChild(heart);
-  setTimeout(() => heart.remove(), 2500);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 2500);
 }
