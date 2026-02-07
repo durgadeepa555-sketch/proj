@@ -1,7 +1,6 @@
-
 function unlock() {
-  const code = document.getElementById("passcode").value;
-  const correctCode = "44319"; // CHANGE THIS ❤️
+  const code = document.getElementById("passcode").value.trim();
+  const correctCode = "44319"; // ❤️ change if needed
 
   if (code === correctCode) {
     document.getElementById("lockScreen").style.display = "none";
@@ -9,12 +8,8 @@ function unlock() {
     document.getElementById("bgMusic").play();
   } else {
     alert("Wrong code 😛 Try again");
+    document.getElementById("passcode").value = "";
   }
-}
-
-function valentine() {
-  document.getElementById("answer").innerText =
-    "Lol, I knew you’d click";
 }
 
 document.getElementById("valentineBtn").addEventListener("click", () => {
@@ -30,31 +25,8 @@ function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
   heart.innerText = "💖";
-
   heart.style.left = Math.random() * 100 + "%";
-
   document.getElementById("hearts").appendChild(heart);
 
-  setTimeout(() => {
-    heart.remove();
-  }, 2500);
+  setTimeout(() => heart.remove(), 2500);
 }
-
-function unlock() {
-  const code = document.getElementById("passcode").value;
-  const correctCode = "44319"; // CHANGE THIS ❤️
-
-  if (code === correctCode) {
-    document.getElementById("lockScreen").style.display = "none";
-    document.getElementById("content").style.display = "block";
-    document.getElementById("bgMusic").play();
-  } else {
-    alert("Wrong code 😛 Try again");
-  }
-}
-
-function valentine() {
-  document.getElementById("answer").innerText =
-    "Lol, I knew you’d click";
-}
-
